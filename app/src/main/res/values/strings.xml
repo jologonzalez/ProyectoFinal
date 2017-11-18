@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProyectoFinal</string>
+    <string name="app_name"> </string>
     <string name="escribeTarea">¿Que tarea?</string>
     <string name="correo">Correo Electronico</string>
     <string name="contraseña">Contraseña</string>
