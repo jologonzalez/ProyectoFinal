@@ -30,7 +30,7 @@ public class AuthActivity extends AppCompatActivity implements LoginFragment.OnL
 
     @Override
     public void finalizarLogin() {
-        Intent intent = new Intent(this, PrincipalActivity.class);
+        Intent intent = new Intent(this, PrincipalTabActivity.class);
         startActivity(intent);
         finish();
     }
@@ -53,7 +53,7 @@ public class AuthActivity extends AppCompatActivity implements LoginFragment.OnL
 
     @Override
     public void finalizarRegistro() {
-        Intent intent = new Intent(this, PrincipalActivity.class);
+        Intent intent = new Intent(this, PrincipalTabActivity.class);
         startActivity(intent);
         finish();
     }

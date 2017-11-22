@@ -12,4 +12,8 @@ public interface ILUsuario {
 
     void authUsuario(String email, String password, CallBackInteractor<String> callBackInteractor);
 
+    void cargarDatos(String nombre, int edad, long celular, CallBackInteractor<String> callBackInteractor);
+
+    void guardarDatos(String nombre, int edad, long celular, CallBackInteractor<String> callBackInteractor);
+
 }

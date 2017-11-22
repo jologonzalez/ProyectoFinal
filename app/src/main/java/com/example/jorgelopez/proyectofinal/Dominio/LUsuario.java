@@ -1,6 +1,8 @@
 package com.example.jorgelopez.proyectofinal.Dominio;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
+import android.view.View;
 
 import com.example.jorgelopez.proyectofinal.Modelo.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -73,4 +75,70 @@ public class LUsuario implements ILUsuario{
         });
 
     }
+
+    @Override
+    public void cargarDatos(final String nombre, int edad, long celular, final CallBackInteractor<String> callBackInteractor) {
+
+        String Uid = Auth.getCurrentUser().getUid();
+/*
+        reference.child(Uid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Usuario usuario = dataSnapshot.getValue(Usuario.class);
+                nombre = usuario.getNombre();
+                edad = usuario.getEdad();
+                celular = usuario.getCelular();
+                callBackInteractor.success("Exitoso");
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+*/
+    }
+
+    @Override
+    public void guardarDatos(String nombre, int edad, long celular, final CallBackInteractor<String> callBackInteractor) {
+
+        String Uid = Auth.getCurrentUser().getUid();
+
+        try {
+            reference.child(Uid).child("nombre").setValue(nombre).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        callBackInteractor.success("Exitoso");
+                    } else {
+                        callBackInteractor.error(task.getException().getMessage());
+                    }
+                }
+            });
+            reference.child(Uid).child("edad").setValue(edad).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        callBackInteractor.success("Exitoso");
+                    } else {
+                        callBackInteractor.error(task.getException().getMessage());
+                    }
+                }
+            });
+            reference.child(Uid).child("celular").setValue(celular).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        callBackInteractor.success("Exitoso");
+                    } else {
+                        callBackInteractor.error(task.getException().getMessage());
+                    }
+                }
+            });
+        }catch (Exception e){
+            callBackInteractor.error(e.getMessage());
+        }
+    }
+
+
 }

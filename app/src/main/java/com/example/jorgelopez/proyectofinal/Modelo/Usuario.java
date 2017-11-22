@@ -9,6 +9,8 @@ public class Usuario {
     private String Uid;
     private String nombre;
     private String email;
+    private int edad;
+    private long celular;
 
     public Usuario() {
     }
@@ -35,5 +37,21 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public long getCelular() {
+        return celular;
+    }
+
+    public void setCelular(long celular) {
+        this.celular = celular;
     }
 }
